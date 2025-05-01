@@ -1,0 +1,25 @@
+.wrapper {
+  margin-left: auto;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.logoutButton {
+  color: #121826;
+  font-weight: 600;
+  padding: 8px 12px;
+  background-color: #fff;
+  border-radius: 4px;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.logoutButton:hover {
+  background-color: #1abc9c;
+  color: #fff;
+}
+
+.userEmail {
+  color: #1abc9c;
+}

@@ -1,0 +1,22 @@
+.nav {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  height: 75px;
+}
+
+.navLink {
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.navLink:hover {
+  background-color: #1abc9c;
+}
+
+.active {
+  background-color: #1abc9c;
+}
