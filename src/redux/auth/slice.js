@@ -6,17 +6,17 @@ import {
   logout as logOutUser,
 } from "./operations";
 
-
 const handlePending = (state) => {
   state.isLoading = true;
   state.error = null;
 };
 
 const handleRejected = (state, action) => {
+ 
+  if (action.type === refreshUser.rejected.type) return;
   state.isLoading = false;
   state.error = action.error.message;
 };
-
 
 const handleRefreshPending = (state) => {
   state.isRefreshing = true;
@@ -79,14 +79,24 @@ const authSlice = createSlice({
         state.isRefreshing = false;
       })
 
-      .addMatcher((action) => action.type.endsWith("/pending"), handlePending)
-      .addMatcher((action) => action.type.endsWith("/rejected"), handleRejected);
+      .addMatcher(
+        (action) =>
+          action.type.endsWith("/pending") &&
+          action.type !== refreshUser.pending.type,
+        handlePending
+      )
+      .addMatcher(
+        (action) =>
+          action.type.endsWith("/rejected") &&
+          action.type !== refreshUser.rejected.type,
+        handleRejected
+      );
   },
 });
 
-
 export const { clearError } = authSlice.actions;
 export default authSlice.reducer;
+
 
 
 
